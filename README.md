@@ -1,6 +1,6 @@
 This code is written as my submission for the second assignment of the course TEPR60 (Test automation and programming) of the Software tester programme at EC utbildning.
 
-The purpose of the code is to test registration of a user on the site BasketballEngland through automation using Cucumber and Selenium.
+The purpose of the code is to test registration of a user on the site Basketball England through automation using Cucumber and Selenium.
 
 There are four required scenarios for the assignment:
   - Everything goes as expected and a user is created
