@@ -1,8 +1,7 @@
 Feature: Register User
 
   Scenario: Successful registration
-    Given I initiate "Firefox"
-    And  I navigate to Create An Account
+    Given I initiate "Firefox" and navigate to Create An Account
     When I type "10/04/1997" in the "DateOfBirth" field
     And I type "Joey" in the "Forename" field
     And I type "Doe" in the "Surname" field
@@ -15,8 +14,7 @@ Feature: Register User
     Then I verify registration success
 
   Scenario Outline: Unsuccessful registration
-    Given I initiate "<browser>"
-    And I navigate to Create An Account
+    Given I initiate "<browser>" and navigate to Create An Account
     When I type "<dateOfBirth>" in the "DateOfBirth" field
     And I type "<firstName>" in the "Forename" field
     And I type "<lastName>" in the "Surname" field

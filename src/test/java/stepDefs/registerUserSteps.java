@@ -29,33 +29,13 @@ public class registerUserSteps {
         driver.quit();
     }
 
-    @Given("I initiate {string}")
-    public void initiate(String browser) {
-        switch (browser) {
-            case "Firefox":
-                driver = new FirefoxDriver();
-                break;
+    @Given("I initiate {string} and navigate to Create An Account")
+    public void setup(String browser){
+        this.initiateBrowser(browser);
 
-            case "Chrome":
-                driver = new ChromeDriver();
-                break;
-
-            case "Edge":
-                driver = new EdgeDriver();
-                break;
-
-            default:
-                throw new RuntimeException("Unsupported browser: " + browser);
-        }
-
-        driver.manage().window().maximize();
-
-       this.randomEmail = "";
-    }
-
-    @Given("I navigate to Create An Account")
-    public void navigateToCreateAnAccount() {
         driver.get("https://membership.basketballengland.co.uk/NewSupporterAccount");
+
+        this.randomEmail = "";
     }
 
     @When("I type {string} in the {string} field")
@@ -112,6 +92,27 @@ public class registerUserSteps {
         }
 
         assertEquals(expected, actual.strip());
+    }
+
+    private void initiateBrowser(String browser) {
+        switch (browser) {
+            case "Firefox":
+                driver = new FirefoxDriver();
+                break;
+
+            case "Chrome":
+                driver = new ChromeDriver();
+                break;
+
+            case "Edge":
+                driver = new EdgeDriver();
+                break;
+
+            default:
+                throw new RuntimeException("Unsupported browser: " + browser);
+        }
+
+        driver.manage().window().maximize();
     }
 
     private void sendKeys(By by, String str) {
